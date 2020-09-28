@@ -1,0 +1,17 @@
+[package]
+name = "bridge-ffi"
+version = "0.1.0"
+authors = ["Hadi <hadilashkari@gmail.com>"]
+edition = "2018"
+
+[lib]
+name = "bridge_ffi"
+crate-type = ["cdylib"]
+
+[dependencies]
+application = { path = "../application" }
+state-action =  { path = "../state-action" }
+presentation = { path = "../presentation" }
+flatbuffers = "0.6.1"
+ffi_helpers = "0.2"
+lazy_static = "1.4"

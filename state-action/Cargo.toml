@@ -1,0 +1,11 @@
+[package]
+name = "state-action"
+version = "0.1.0"
+authors = ["Hadi <hadilashkari@gmail.com>"]
+edition = "2018"
+
+[build-dependencies]
+flatc-rust = "*"
+
+[dependencies]
+flatbuffers = "0.6.1"

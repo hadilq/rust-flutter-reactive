@@ -1,0 +1,12 @@
+[package]
+name = "application"
+version = "0.1.0"
+authors = ["Hadi <hadilashkari@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+presentation = { path = "../presentation" }
+domain = { path = "../domain" }
+data =  { path = "../data" }
+lazy_static = "1.4"
+redux-rs = "0.1.0"

@@ -1,0 +1,9 @@
+[workspace]
+members = [
+  "bridge-ffi",
+  "application",
+  "domain",
+  "presentation",
+  "state-action",
+  "data",
+]

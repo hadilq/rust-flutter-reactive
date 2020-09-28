@@ -1,0 +1,9 @@
+[package]
+name = "presentation"
+version = "0.1.0"
+authors = ["Hadi <hadilashkari@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+domain = { path = "../domain" }
+tokio = { version = "0.2", features = ["rt-threaded"] }

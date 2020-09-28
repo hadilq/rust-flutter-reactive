@@ -1,0 +1,22 @@
+PODS:
+  - bridge_ffi (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+
+DEPENDENCIES:
+  - bridge_ffi (from `.symlinks/plugins/bridge_ffi/ios`)
+  - Flutter (from `Flutter`)
+
+EXTERNAL SOURCES:
+  bridge_ffi:
+    :path: ".symlinks/plugins/bridge_ffi/ios"
+  Flutter:
+    :path: Flutter
+
+SPEC CHECKSUMS:
+  bridge_ffi: 71eb6385effeda0150cf179c2b2be0939c72cff0
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.8.4

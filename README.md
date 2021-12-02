@@ -30,6 +30,13 @@ It makes the code independent of the platform. As an Android developer, we face 
 
 Run/Test
 ---
+You need to install:
+ + `xcode` if you're on a mac
+ + Android Studio, Android `sdk`, and Android `ndk`
+ + `flatbuffer`
+ + `rust`'s `rustup`, `cargo`, `cargo-make` and the targets
+ + `flutter`
+
 To build and run tests just use standard `cargo` commands.
 ```bash
 cargo test
@@ -40,11 +47,29 @@ rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-and
 rustup target add aarch64-apple-ios x86_64-apple-ios
 cargo install cargo-make
 ```
-Then build the artifacts by
+Then build the shared libraries by
 ```bash
 cargo make
 ```
 To run the flutter app
+```bash
+cd ui && flutter run
+```
+
+### Nix
+
+If you're familiar with [Nix](https://nixos.org/manual/nixpkgs/stable/), you just need to install:
+ + `xcode` if you're on a mac
+ + Android Studio, and Android `sdk`
+ + `flutter`
+
+and Nix will take care of the rest by
+```bash
+nix-shell shell.nix
+$ cargo test
+$ cargo make
+```
+It'll build the shared libraries for Android and iOS. Then you can `exit` the shell, and continue on flutter:
 ```bash
 cd ui && flutter run
 ```

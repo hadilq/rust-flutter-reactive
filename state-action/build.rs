@@ -15,16 +15,38 @@
  */
 extern crate flatc_rust;
 
-use std::path::Path;
+use relative_path::RelativePath;
+use std::ffi::OsStr;
+use std::env;
 
 fn main() {
+    let current = env::current_exe().unwrap();
+    let mut target = current.as_path();
+    for ancestor in current.ancestors() {
+        if ancestor.file_name() == Some(OsStr::new("target")) {
+            target = ancestor;
+            break;
+        }
+    }
+    let root = target.parent().unwrap();
+
+    let actions = RelativePath::new("state-action/src/flat/actions.fbs").to_path(root);
+    let states = RelativePath::new("state-action/src/flat/states.fbs").to_path(root);
+    let rust_model = RelativePath::new("state-action/src/model/").to_path(root);
+    let dart_model = RelativePath::new("ui/plugins/bridge_ffi/lib/model/").to_path(root);
+
+    println!("actions location: {}", actions.display());
+    println!("states location: {}", states.display());
+    println!("rust generated location: {}", rust_model.display());
+    println!("dart generated location: {}", dart_model.display());
+
     flatc_rust::run(flatc_rust::Args {
         lang: "rust",
         inputs: &[
-            Path::new("../state-action/src/flat/actions.fbs"),
-            Path::new("../state-action/src/flat/states.fbs"),
+            actions.as_path(),
+            states.as_path(),
         ],
-        out_dir: Path::new("src/model/"),
+        out_dir: rust_model.as_path(),
         ..Default::default()
     })
     .expect("flatc");
@@ -32,10 +54,10 @@ fn main() {
     flatc_rust::run(flatc_rust::Args {
         lang: "dart",
         inputs: &[
-            Path::new("../state-action/src/flat/actions.fbs"),
-            Path::new("../state-action/src/flat/states.fbs"),
+            actions.as_path(),
+            states.as_path(),
         ],
-        out_dir: Path::new("../ui/plugins/bridge_ffi/lib/model/"),
+        out_dir: dart_model.as_path(),
         ..Default::default()
     })
     .expect("flatc");

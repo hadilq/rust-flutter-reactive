@@ -13,12 +13,5 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-pub mod successor;
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+mod injector;
+pub mod thread_safe_app;

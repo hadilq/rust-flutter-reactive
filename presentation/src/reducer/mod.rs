@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-use domain::use_case::successor::AddOne;
+use domain::successor::AddOne;
 
 use crate::action::page::main_page::MainPage;
 use crate::action::page::PageType;

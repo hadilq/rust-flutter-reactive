@@ -9,4 +9,4 @@ flatc-rust = "*"
 relative-path = "*"
 
 [dependencies]
-flatbuffers = "0.6.1"
+flatbuffers = "2.0.0"

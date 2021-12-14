@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-pub mod successor;
+use domain_interface::successor::Successor;
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+#[derive(Copy, Clone)]
+pub struct AddOne;
+
+impl Successor for AddOne {
+    fn add_one(&self, count: i32) -> i32 {
+        count + 1
     }
 }

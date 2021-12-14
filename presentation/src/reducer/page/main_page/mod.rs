@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-use domain::use_case::successor::Successor;
+use domain::successor::Successor;
 
 use crate::action::page::main_page::{MainPage as MainAction, MainPage};
 use crate::state::page::main_page::MainPage as MainState;

@@ -25,8 +25,26 @@ let
       extensions = [
         "clippy-preview"
         "rust-src"
+        "rust-analysis"
       ];
     };
+
+
+  environment.systemPackages = with nixpkgs; [
+    (neovim.override {
+      configure = {
+        customRC = ''
+          if filereadable($HOME . "/.vimrc")
+            source ~/.vimrc
+          endif
+        '';
+        packages.nixbundle.start = with vimPlugins; [
+          nvim-completion-manager
+          nvim-cm-racer
+        ];
+      };
+    })
+  ];
 
   androidComposition = nixpkgs.androidenv.composeAndroidPackages {
     platformVersions = [ "28" ];
@@ -41,6 +59,7 @@ in
     buildInputs = [
       rust
       androidComposition.androidsdk
+      neovim
     ];
 
     nativeBuildInputs = [
@@ -58,13 +77,15 @@ in
       ]
     );
 
+
+
     # ENV Variables
     RUST_BACKTRACE = 1;
     LIBCLANG_PATH = "${llvmPackages.libclang}/lib";
     ANDROID_HOME = androidComposition.androidsdk;
     ANDROID_NDK_HOME = "${androidComposition.androidsdk}/libexec/android-sdk/ndk-bundle";
-    RUST_HOME = "${rust}";
-    RUST_SRC_HOME = "${rust}/lib/rustlib/src/rust";
+    RUST_PATH = "${rust}";
+    RUST_SRC_PATH = "${rust}/lib/rustlib/src/rust";
 
     # Post Shell Hook
     shellHook = ''

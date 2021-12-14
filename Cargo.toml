@@ -2,8 +2,15 @@
 members = [
   "bridge-ffi",
   "application",
+  "application-new/interface",
+  "application-new/implement",
   "domain",
+  "domain-new/interface",
+  "domain-new/implement",
+  "root",
   "presentation",
+  "presentation-new/interface",
+  "presentation-new/implement",
   "state-action",
   "data",
 ]

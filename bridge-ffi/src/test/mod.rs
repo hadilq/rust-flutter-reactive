@@ -22,7 +22,7 @@ mod test {
     use presentation::reducer::RootReducer;
     use presentation::state::Root;
 
-    use crate::app::state_adapter::map_state;
+    use crate::adapter::state_adapter::map_state;
 
     #[test]
     fn state_adapter_maps() {

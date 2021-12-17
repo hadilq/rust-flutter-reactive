@@ -21,7 +21,7 @@ use std::sync::{Arc, Mutex};
 
 use lazy_static::lazy_static;
 
-use crate::adapter::{act, register_for_logger, register_for_updates, state};
+use crate::adapter::{act, dispatch_state, register_for_logger, register_for_updates};
 use crate::ffi::{
     DartCObject, DartCObjectType, DartCObjectValue, DartLoggerFn, DartNativeTypedData, DartPort,
     DartPostCObjectFn, DartTypedDataType,
@@ -29,7 +29,6 @@ use crate::ffi::{
 
 mod adapter;
 mod ffi;
-mod test;
 
 lazy_static! {
     static ref POST_COBJECT: Arc<Mutex<Option<DartPostCObjectFn>>> = Arc::new(Mutex::new(None));
@@ -140,8 +139,8 @@ pub unsafe extern "C" fn do_action(data: *mut Event) {
 }
 
 #[no_mangle]
-pub unsafe extern "C" fn current_state() -> *mut Event {
-    create_pointer(state())
+pub unsafe extern "C" fn dispatch_current_state() {
+    dispatch_state()
 }
 
 #[no_mangle]

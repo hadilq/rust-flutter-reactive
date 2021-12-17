@@ -5,10 +5,10 @@ authors = ["Hadi <hadilashkari@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-domain-implement = { path = "../domain-new/implement" }
-presentation-interface = { path = "../presentation-new/interface"}
-presentation-implement = { path = "../presentation-new/implement"}
-application-interface = { path = "../application-new/interface"}
-application-implement = { path = "../application-new/implement"}
+domain-implement = { path = "../domain/implement" }
+presentation-interface = { path = "../presentation/interface" }
+presentation-implement = { path = "../presentation/implement" }
+application-interface = { path = "../application/interface" }
+application-implement = { path = "../application/implement" }
 data =  { path = "../data" }
 lazy_static = "1.4"

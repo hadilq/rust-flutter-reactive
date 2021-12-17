@@ -13,8 +13,8 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-use application::app::application::App;
-use presentation::state::Root;
+use root::thread_safe_app::ThreadSafeApp;
+use presentation_interface::state::Root;
 
 use crate::adapter::action_adapter::map_action;
 use crate::adapter::state_adapter::map_state;
@@ -26,15 +26,15 @@ pub mod state_adapter;
 pub fn act(data: Vec<u8>) {
     let action = map_action(data);
     log(format!("action: {:?}", action));
-    App::act(action)
+    ThreadSafeApp::act(action)
 }
 
-pub fn state() -> Vec<u8> {
-    map_state(&App::current_state())
+pub fn dispatch_state() {
+    ThreadSafeApp::dispatch_current_state()
 }
 
 pub fn register_for_updates() {
-    App::updates(|state: &Root| {
+    ThreadSafeApp::updates(|state: &Root| {
         let root = state.clone();
         log(format!("state: {:?}", root));
         notify_for_update(map_state(&root));
@@ -42,7 +42,7 @@ pub fn register_for_updates() {
 }
 
 pub fn register_for_logger() {
-    App::logger(|message: String| {
+    ThreadSafeApp::logger(|message: String| {
         log(message);
     })
 }

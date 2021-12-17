@@ -15,8 +15,8 @@
 */
 use flatbuffers::FlatBufferBuilder;
 
-use presentation::state::page::PageType;
-use presentation::state::Root as Root_;
+use presentation_interface::state::page::PageType;
+use presentation_interface::state::Root as Root_;
 use state_action::model::states_generated::states::{
     finish_root_buffer, MainPage, MainPageArgs, Page, Root, RootArgs, Text, TextArgs, User,
     UserArgs,
@@ -58,4 +58,25 @@ pub fn map_state(state: &Root_) -> Vec<u8> {
 
     finish_root_buffer(builder, root);
     builder.finished_data().to_owned()
+}
+
+#[cfg(test)]
+mod test {
+    use presentation_interface::action::page::main_page::MainPage::ButtonClicked;
+    use presentation_interface::action::page::PageType::MainPageType as MainPageTypeAction;
+    use presentation_interface::action::user::User as UserAction;
+    use presentation_interface::action::Root as RootAction;
+    use presentation_interface::state::Root;
+
+    use crate::adapter::state_adapter::map_state;
+
+    #[test]
+    fn state_adapter_maps() {
+        let serialized_root = [
+            16, 0, 0, 0, 0, 0, 10, 0, 18, 0, 8, 0, 7, 0, 12, 0, 10, 0, 0, 0, 0, 0, 0, 1, 32, 0, 0,
+            0, 12, 0, 0, 0, 0, 0, 6, 0, 8, 0, 4, 0, 6, 0, 0, 0, 4, 0, 0, 0, 252, 255, 255, 255, 4,
+            0, 4, 0, 4, 0, 0, 0,
+        ];
+        assert_eq!(map_state(&Root::default()), serialized_root.to_vec())
+    }
 }

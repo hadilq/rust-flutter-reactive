@@ -1,16 +1,13 @@
 [workspace]
 members = [
   "bridge-ffi",
-  "application",
-  "application-new/interface",
-  "application-new/implement",
-  "domain",
-  "domain-new/interface",
-  "domain-new/implement",
+  "application/interface",
+  "application/implement",
+  "domain/interface",
+  "domain/implement",
   "root",
-  "presentation",
-  "presentation-new/interface",
-  "presentation-new/implement",
+  "presentation/interface",
+  "presentation/implement",
   "state-action",
   "data",
 ]

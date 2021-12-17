@@ -13,10 +13,10 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-use presentation::action::page::main_page::MainPage;
-use presentation::action::page::PageType;
-use presentation::action::user::User;
-use presentation::action::Root;
+use presentation_interface::action::page::main_page::MainPage;
+use presentation_interface::action::page::PageType;
+use presentation_interface::action::user::User;
+use presentation_interface::action::Root;
 use state_action::model::actions_generated::actions::get_root_as_root;
 use state_action::model::actions_generated::actions::Page as Page_;
 use state_action::model::actions_generated::actions::User as User_;

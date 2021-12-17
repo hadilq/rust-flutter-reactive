@@ -8,4 +8,4 @@ edition = "2021"
 
 [dependencies]
 presentation-interface = { path = "../interface" }
-domain-interface = { path = "../../domain-new/interface" }
+domain-interface = { path = "../../domain/interface" }

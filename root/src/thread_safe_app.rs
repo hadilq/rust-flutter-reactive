@@ -21,18 +21,22 @@ macro_rules! app {
     () => { APP.clone().as_ref().lock().unwrap() };
 }
 
-pub fn act(action: RootAction) {
-    app!().dispatch(action);
-}
+pub struct ThreadSafeApp;
 
-pub fn dispatch_current_state() {
-    app!().dispatch_subscriptions()
-}
+impl ThreadSafeApp {
+    pub fn act(action: RootAction) {
+        app!().dispatch(action);
+    }
 
-pub fn updates(cb: fn(&RootState)) {
-    app!().subscribe_for_updates(cb)
-}
+    pub fn dispatch_current_state() {
+        app!().dispatch_subscriptions()
+    }
 
-pub fn logger(cb: fn(String)) {
-    app!().subscribe_for_logger(cb);
+    pub fn updates(cb: fn(&RootState)) {
+        app!().subscribe_for_updates(cb)
+    }
+
+    pub fn logger(cb: fn(String)) {
+        app!().subscribe_for_logger(cb);
+    }
 }

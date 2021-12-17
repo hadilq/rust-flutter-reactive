@@ -9,9 +9,9 @@ name = "bridge_ffi"
 crate-type = ["cdylib", "cdylib"]
 
 [dependencies]
-application = { path = "../application" }
+root = { path = "../root" }
 state-action =  { path = "../state-action" }
-presentation = { path = "../presentation" }
+presentation-interface = { path = "../presentation/interface" }
 flatbuffers = "2.0.0"
 ffi_helpers = "0.2"
 lazy_static = "1.4"

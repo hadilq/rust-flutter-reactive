@@ -11,8 +11,4 @@
 /// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
-#[derive(PartialEq, Debug)]
-pub enum MainPage {
-    None,
-    ButtonClicked,
-}
+pub mod main_page;

@@ -12,11 +12,11 @@
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
-*/
-use presentation_interface::action::page::main_page::MainPage;
-use presentation_interface::action::page::PageType;
+ */
+use presentation_interface::action::page::main_page::main_page::MainPage;
+use presentation_interface::action::page::page_type::PageType;
+use presentation_interface::action::root::Root;
 use presentation_interface::action::user::User;
-use presentation_interface::action::Root;
 use state_action::model::actions_generated::actions::get_root_as_root;
 use state_action::model::actions_generated::actions::Page as Page_;
 use state_action::model::actions_generated::actions::User as User_;

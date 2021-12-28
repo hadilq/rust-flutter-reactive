@@ -11,14 +11,6 @@
 /// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
-use crate::action::page::PageType;
-use crate::action::user::User;
-
 pub mod page;
 pub mod user;
-
-#[derive(PartialEq, Debug)]
-pub struct Root {
-    pub user: User,
-    pub page: PageType,
-}
+pub mod root;

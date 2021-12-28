@@ -1,3 +1,4 @@
+use presentation_interface::state::root::Root;
 /**
 * Copyright 2020 Hadi Lashkari Ghouchani
 
@@ -14,7 +15,6 @@
 * limitations under the License.
 */
 use root::thread_safe_app::ThreadSafeApp;
-use presentation_interface::state::Root;
 
 use crate::adapter::action_adapter::map_action;
 use crate::adapter::state_adapter::map_state;

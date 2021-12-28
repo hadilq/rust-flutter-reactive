@@ -1,5 +1,3 @@
-use crate::state::page::main_page::text::Text;
-use crate::state::PageType::MainPageType;
 /// Copyright 2021 Hadi Lashkari Ghouchani
 ///
 /// Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,25 +11,5 @@ use crate::state::PageType::MainPageType;
 /// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
-use crate::state::{Page, PageType};
-
+pub mod main_page;
 pub mod text;
-
-#[derive(PartialEq, Debug, Clone)]
-pub struct MainPage {
-    pub text: Text,
-}
-
-impl Page for MainPage {
-    fn page_type(self) -> PageType {
-        MainPageType { page: self }
-    }
-}
-
-impl Default for MainPage {
-    fn default() -> Self {
-        MainPage {
-            text: Text::default(),
-        }
-    }
-}

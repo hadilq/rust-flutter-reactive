@@ -11,14 +11,25 @@
 /// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
+use crate::state::page::main_page::main_page::MainPage;
+use crate::state::user::User;
 
-use crate::action::root::Root as RootAction;
-use crate::state::root::Root as RootState;
+use crate::state::page::page_type::PageType;
+use crate::state::page::page_type::PageType::MainPageType;
 
-pub trait RootReducer {
-    fn reduce(
-        self: &Self,
-        state: &RootState,
-        action: &RootAction,
-    ) -> RootState;
+#[derive(PartialEq, Debug, Clone)]
+pub struct Root {
+    pub user: User,
+    pub page: PageType,
+}
+
+impl Default for Root {
+    fn default() -> Self {
+        Root {
+            user: User::default(),
+            page: MainPageType {
+                page: MainPage::default(),
+            },
+        }
+    }
 }

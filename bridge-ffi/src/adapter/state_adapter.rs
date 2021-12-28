@@ -12,11 +12,11 @@
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 * See the License for the specific language governing permissions and
 * limitations under the License.
-*/
+ */
 use flatbuffers::FlatBufferBuilder;
 
-use presentation_interface::state::page::PageType;
-use presentation_interface::state::Root as Root_;
+use presentation_interface::state::page::page_type::PageType;
+use presentation_interface::state::root::Root as Root_;
 use state_action::model::states_generated::states::{
     finish_root_buffer, MainPage, MainPageArgs, Page, Root, RootArgs, Text, TextArgs, User,
     UserArgs,
@@ -62,11 +62,11 @@ pub fn map_state(state: &Root_) -> Vec<u8> {
 
 #[cfg(test)]
 mod test {
-    use presentation_interface::action::page::main_page::MainPage::ButtonClicked;
-    use presentation_interface::action::page::PageType::MainPageType as MainPageTypeAction;
+    use presentation_interface::action::page::main_page::main_page::MainPage::ButtonClicked;
+    use presentation_interface::action::page::page_type::PageType::MainPageType as MainPageTypeAction;
+    use presentation_interface::action::root::Root as RootAction;
     use presentation_interface::action::user::User as UserAction;
-    use presentation_interface::action::Root as RootAction;
-    use presentation_interface::state::Root;
+    use presentation_interface::state::root::Root;
 
     use crate::adapter::state_adapter::map_state;
 

@@ -11,14 +11,17 @@
 /// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
+use crate::state::page::main_page::text::Text;
 
-use crate::action::root::Root as RootAction;
-use crate::state::root::Root as RootState;
+#[derive(PartialEq, Debug, Clone)]
+pub struct MainPage {
+    pub text: Text,
+}
 
-pub trait RootReducer {
-    fn reduce(
-        self: &Self,
-        state: &RootState,
-        action: &RootAction,
-    ) -> RootState;
+impl Default for MainPage {
+    fn default() -> Self {
+        MainPage {
+            text: Text::default(),
+        }
+    }
 }

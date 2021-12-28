@@ -12,9 +12,9 @@
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 use domain_interface::successor::Successor;
-use presentation_interface::action::page::main_page::MainPage as MainAction;
+use presentation_interface::action::page::main_page::main_page::MainPage as MainAction;
 use presentation_interface::reducer::page::main_page::MainPageReducer;
-use presentation_interface::state::page::main_page::MainPage as MainState;
+use presentation_interface::state::page::main_page::main_page::MainPage as MainState;
 use presentation_interface::state::page::main_page::text::Text;
 
 pub struct MainPageReducerStruct<SuccessorType: Successor> {

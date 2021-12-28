@@ -11,13 +11,10 @@
 /// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
-use crate::action::page::main_page::MainPage as MainAction;
-use crate::state::page::main_page::MainPage as MainState;
+use crate::action::page::main_page::main_page::MainPage;
 
-pub trait MainPageReducer {
-    fn reduce(
-        self: &Self,
-        state: &MainState,
-        action: &MainAction,
-    ) -> MainState;
+#[derive(PartialEq, Debug)]
+pub enum PageType {
+    None,
+    MainPageType { page: MainPage },
 }

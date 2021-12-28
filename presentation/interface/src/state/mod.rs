@@ -11,32 +11,6 @@
 /// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
-use page::main_page::MainPage;
-use user::User;
-
-use crate::state::page::PageType;
-use crate::state::PageType::MainPageType;
-
+pub mod root;
 pub mod page;
 pub mod user;
-
-trait Page {
-    fn page_type(self) -> PageType;
-}
-
-#[derive(PartialEq, Debug, Clone)]
-pub struct Root {
-    pub user: User,
-    pub page: PageType,
-}
-
-impl Default for Root {
-    fn default() -> Self {
-        Root {
-            user: User::default(),
-            page: MainPageType {
-                page: MainPage::default(),
-            },
-        }
-    }
-}

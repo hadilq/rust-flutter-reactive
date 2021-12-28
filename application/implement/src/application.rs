@@ -13,9 +13,9 @@
 /// limitations under the License.
 
 use application_interface::application::Application;
-use presentation_interface::action::Root as RootAction;
+use presentation_interface::action::root::Root as RootAction;
 use presentation_interface::reducer::root::RootReducer;
-use presentation_interface::state::Root as RootState;
+use presentation_interface::state::root::Root as RootState;
 
 use crate::store::{Reducer, Store};
 
@@ -72,16 +72,16 @@ impl<RootReducerType: RootReducer> Application<RootReducerType> for App<RootRedu
 #[cfg(test)]
 mod test {
     use application_interface::application::Application;
-    use presentation_interface::action::page::main_page::MainPage::ButtonClicked;
-    use presentation_interface::action::page::PageType::MainPageType as MainPageTypeAction;
-    use presentation_interface::action::Root as RootAction;
+    use presentation_interface::action::page::main_page::main_page::MainPage::ButtonClicked;
+    use presentation_interface::action::page::page_type::PageType::MainPageType as MainPageTypeAction;
+    use presentation_interface::action::root::Root as RootAction;
     use presentation_interface::action::user::User as UserAction;
     use presentation_interface::reducer::root::RootReducer;
-    use presentation_interface::state::page::main_page::MainPage;
+    use presentation_interface::state::page::main_page::main_page::MainPage;
     use presentation_interface::state::page::main_page::text::Text;
-    use presentation_interface::state::page::PageType;
-    use presentation_interface::state::page::PageType::MainPageType as MainPageTypeState;
-    use presentation_interface::state::Root as RootState;
+    use presentation_interface::state::page::page_type::PageType;
+    use presentation_interface::state::page::page_type::PageType::MainPageType as MainPageTypeState;
+    use presentation_interface::state::root::Root as RootState;
     use presentation_interface::state::user::User;
 
     use crate::application::App;

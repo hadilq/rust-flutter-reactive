@@ -1,4 +1,3 @@
-use presentation_interface::action::page::main_page::MainPage;
 /// Copyright 2021 Hadi Lashkari Ghouchani
 ///
 /// Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,14 +11,15 @@ use presentation_interface::action::page::main_page::MainPage;
 /// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
-use presentation_interface::action::page::PageType;
-use presentation_interface::action::Root as RootAction;
+use presentation_interface::action::page::main_page::main_page::MainPage;
+use presentation_interface::action::page::page_type::PageType;
+use presentation_interface::action::root::Root as RootAction;
 use presentation_interface::reducer::page::main_page::MainPageReducer;
 use presentation_interface::reducer::root::RootReducer;
 use presentation_interface::reducer::user::UserReducer;
-use presentation_interface::state::page::PageType::MainPageType as MainPageTypeState;
-use presentation_interface::state::page::PageType::SettingsType;
-use presentation_interface::state::Root as RootState;
+use presentation_interface::state::page::page_type::PageType::MainPageType as MainPageTypeState;
+use presentation_interface::state::page::page_type::PageType::SettingsType;
+use presentation_interface::state::root::Root as RootState;
 
 pub struct RootReducerStruct<
     MainPageReducerType: MainPageReducer,
@@ -66,17 +66,17 @@ impl<
 
 #[cfg(test)]
 mod test {
-    use presentation_interface::action::page::main_page::MainPage;
-    use presentation_interface::action::page::PageType;
-    use presentation_interface::action::Root as RootAction;
+    use presentation_interface::action::page::main_page::main_page::MainPage;
+    use presentation_interface::action::page::page_type::PageType;
+    use presentation_interface::action::root::Root as RootAction;
     use presentation_interface::action::user::User as UserAction;
     use presentation_interface::reducer::page::main_page::MainPageReducer;
     use presentation_interface::reducer::root::RootReducer;
     use presentation_interface::reducer::user::UserReducer;
-    use presentation_interface::state::page::main_page::MainPage as MainPageState;
+    use presentation_interface::state::page::main_page::main_page::MainPage as MainPageState;
     use presentation_interface::state::page::main_page::text::Text;
-    use presentation_interface::state::page::PageType::MainPageType as MainPageTypeState;
-    use presentation_interface::state::Root as RootState;
+    use presentation_interface::state::page::page_type::PageType::MainPageType as MainPageTypeState;
+    use presentation_interface::state::root::Root as RootState;
     use presentation_interface::state::user::User as UserState;
 
     use crate::reducer::root::RootReducerStruct;

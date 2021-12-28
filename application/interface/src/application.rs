@@ -12,9 +12,9 @@
 /// See the License for the specific language governing permissions and
 /// limitations under the License.
 
-use presentation_interface::action::Root as RootAction;
+use presentation_interface::action::root::Root as RootAction;
 use presentation_interface::reducer::root::RootReducer;
-use presentation_interface::state::Root as RootState;
+use presentation_interface::state::root::Root as RootState;
 
 pub trait Application<RootReducerType: RootReducer> {
 

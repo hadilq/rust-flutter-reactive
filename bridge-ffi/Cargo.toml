@@ -6,7 +6,7 @@ edition = "2018"
 
 [lib]
 name = "bridge_ffi"
-crate-type = ["staticlib"]
+crate-type = ["cdylib"]
 
 [dependencies]
 root = { path = "../root" }

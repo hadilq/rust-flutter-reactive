@@ -6,7 +6,9 @@ This is a sample app to improve consistency over Mobile App Development. You can
 Technologies
 ---
 The followings are the libraries and technologies that are used in this sample.
- - Rust as the main part of the app.
+ - Rust as the main part of the app. Tried to create it as scalable as possible.
+ - Dependency Injection.
+ - Applying Dependency Inversion Principle on module level, where you can find `implement`/`interface` modules.
  - Flutter as the ui framework. You can find the flutter project in `ui` directory.
  - Clean Architecture as you can find the domain, data, and presentation layers in `domain`, `data`, and `presentaiton` directories. The data layer is completely empty and just created to show how wire up these layers.
  - FFI as Foreign function interface and bridge between Rust and Dart code in Flutter. You can find this bridge in `bridge-ffi` directory.
